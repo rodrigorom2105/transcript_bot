@@ -14,7 +14,7 @@ export type StatusResponse200Inactive = { active: false };
 
 const client = axios.create({
   baseURL: config.BACKEND_URL,
-  timeout: 10_000,
+  timeout: 150_000,
   headers: { "X-Internal-Secret": config.INTERNAL_SECRET },
   validateStatus: () => true,
 });
