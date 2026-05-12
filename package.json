@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "clear-commands": "tsx scripts/clear-commands.ts",
     "dev": "tsx watch src/index.ts",
     "build": "tsc --project tsconfig.json",
     "start": "node dist/index.js"
