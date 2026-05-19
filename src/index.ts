@@ -10,6 +10,8 @@ import { config } from "./config.js";
 import { logger } from "./utils/logger.js";
 import * as preguntar from "./commands/preguntar.js";
 import * as estado from "./commands/estado.js";
+import * as clockin from "./commands/clockin.js";
+import * as clockout from "./commands/clockout.js";
 
 type Command = {
   data: { name: string; toJSON: () => unknown };
@@ -19,6 +21,8 @@ type Command = {
 const commands = new Map<string, Command>([
   [preguntar.data.name, preguntar],
   [estado.data.name, estado],
+  [clockin.data.name, clockin],
+  [clockout.data.name, clockout],
 ]);
 
 async function registerCommands(): Promise<void> {

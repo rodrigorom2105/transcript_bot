@@ -7,6 +7,8 @@ const schema = z.object({
   DISCORD_GUILD_ID: z.string().min(1),
   INTERNAL_SECRET: z.string().min(1),
   BACKEND_URL: z.string().url().default("http://localhost:3000"),
+  GOOGLE_SHEETS_SPREADSHEET_ID: z.string().min(1),
+  GOOGLE_SERVICE_ACCOUNT_JSON: z.string().min(1),
   NODE_ENV: z.enum(["production", "development"]).default("production"),
 });
 
