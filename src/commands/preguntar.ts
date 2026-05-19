@@ -8,12 +8,12 @@ import { logger } from "../utils/logger.js";
 
 export const data = new SlashCommandBuilder()
   .setName("preguntar")
-  .setDescription("Consulta al asistente IUL durante tu llamada")
+  .setDescription("Pregunta al asistente IUL (con o sin llamada activa)")
   .addStringOption((opt) =>
     opt
       .setName("pregunta")
       .setDescription("¿Qué quieres preguntarle al asistente?")
-      .setRequired(true)
+      .setRequired(true),
   );
 
 export async function execute(
@@ -36,16 +36,6 @@ export async function execute(
         .setDescription(`> "${answer}"`);
       await interaction.editReply({ embeds: [embed] });
       return;
-    }
-
-    if (status === 404) {
-      const body = data as backend.AskResponse404;
-      if (body.error === "no_active_session") {
-        await interaction.editReply(
-          "No tienes una sesión activa. Abre la app web e inicia una sesión primero."
-        );
-        return;
-      }
     }
 
     if (status === 503) {

@@ -2,7 +2,6 @@ import axios from "axios";
 import { config } from "../config.js";
 
 export type AskResponse200 = { answer: string };
-export type AskResponse404 = { error: "no_active_session" };
 export type AskResponse503 = { error: "llm_unavailable" };
 
 export type StatusResponse200Active = {
